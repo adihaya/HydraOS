@@ -1,0 +1,874 @@
+/* Platterization */
+html { background:#f2f2f2; width:100%; height:100%; }
+body { min-height:100%; width:980px; margin:0 auto; padding:0 70px; position:relative; z-index:1; background:#fff; border:1px solid #d9d9d9; border-top:none; border-bottom:none;
+	-webkit-box-shadow:0 0 4px rgba(0,0,0,.3);
+	   -moz-box-shadow:0 0 4px rgba(0,0,0,.3);
+	        box-shadow:0 0 4px rgba(0,0,0,.3);
+}
+body:nth-child(1n) { border:none; }
+body:before { content:'.'; display:block; height:0; clear:both; visibility:hidden; }
+
+#main,
+#main #content { position:static; padding:0; background:transparent; }
+#main .content,
+#main #content { border:none;
+	-webkit-box-shadow:none;
+	   -moz-box-shadow:none;
+	        box-shadow:none;
+	-webkit-border-radius:0;
+	 -khtml-border-radius:0;
+	   -moz-border-radius:0;
+	        border-radius:0;
+}
+
+@media only screen and (max-width:1119px) {
+	html { background:#fff; }
+	body { width:980px; padding-left:22px; padding-right:22px;
+		-webkit-box-shadow:none;
+		   -moz-box-shadow:none;
+		        box-shadow:none;
+	}
+}
+
+@media only screen and (max-device-width:768px) {
+	body { width:1024px; padding-left:0; padding-right:0; }
+	#main { overflow:hidden; width:980px; padding:0 22px; }
+}
+
+#globalfooter { clear:both; }
+
+
+/* Main */
+#main { width:980px; margin:0 auto; position:static; }
+#main .content,
+#main #content { margin:0 0 18px; padding:60px 55px 32px; zoom:1; }
+#main .content .content { width:auto; padding:0; }
+.content:after { content:'.'; display:block; height:0; clear:both; visibility:hidden; }
+
+#main .flushpad,
+#main .flushright,
+#main .flushleft,
+#main .relative { _position:relative; _z-index:1; _zoom:1; }
+
+/* fonts */
+.content { font-size:1.167em; line-height:1.4285em; word-spacing:-1px; } /* 14px/20px */
+.content h1 { font-size:1.7142em; line-height:1.1666em; margin-bottom:10px; font-weight:normal; } /* 24px/28px */
+.content h2 { font-size:1.2857em; line-height:1.3888em; margin-bottom:7px; } /* 18px/25px */
+.content h3	{ font-size:1.1428em; line-height:1.25em; margin-bottom:7px; }/* 16px/20px */
+.content h4 { font-size:1em; margin-bottom:7px; } /* 14px/20px */
+
+.content h1 img,
+.content h2 img { display:block; margin:0; }
+
+.content h1 sup { bottom:1em; }
+
+.content .title,
+.content .title h1,
+.content .title h2,
+.content .title h3 { line-height:1.2142em; font-weight:normal; }
+
+.content .title { font-size:2em; margin-bottom:10px; }
+.content .title h1,
+.content .title h2,
+.content .title h3 { font-size:1em; margin-bottom:0; }
+.content .title h2 { color:#898989; }
+
+.content h1.image-title { zoom:1; margin-bottom:18px; }
+.content h1.image-title:after { content:'.'; display:block; height:0; clear:both; visibility:hidden; }
+.content h1.image-title img { float:left; _position:relative; _z-index:1; }
+.content h1.image-title .icon-image { margin-right:8px; margin-left:-6px; }
+.content h1.image-title .title-image { margin-top:21px; margin-right:-100px; }
+.content .column h1.image-title img { float:none; display:block; }
+.content .column h1.image-title .icon-image { margin-right:0; margin-bottom:21px; }
+.content .column h1.image-title .title-image { margin:0; }
+
+.content .small { font-size:.8571em; line-height:1.5em; } /* 12px/18px */
+.content .intro { font-size:1.2857em; line-height:1.3888em; } /* 18px/25px */
+.content .caption { color:#666; }
+
+.content .hero h1 { margin-bottom:2px; }
+
+body.specs #main { font-size:1em; line-height:1.4286em; }
+
+/* layout */
+.content .row { padding-top:50px; padding-bottom:32px; }
+
+.content .column { *display:inline; }
+.content .grid2col .column,
+.content .row .grid2col .column,
+.content .row.grid2col .column { width:415px; }
+
+.content .block { display:block; }
+.content .inline { display:inline; }
+.content .left { float:left; }
+.content .right { float:right; }
+.content .center { display:block; margin-right:auto; margin-left:auto; text-align:center; }
+
+.content .flushpad,
+.content .padright { padding-right:125px; }
+
+.content .flushpad,
+.content .padleft { padding-left:125px; }
+
+.content .flushpad,
+.content .flushright { margin-right:-125px; }
+
+.content .flushpad,
+.content .flushleft { margin-left:-125px; }
+
+.content section.app { position:relative; padding:18px 0 45px; border-bottom:1px solid #d9d9d9; zoom:1; }
+.content section.app:after { content:'.'; display:block; height:0; clear:both; visibility:hidden; }
+.content section.app.last { border-bottom:0; }
+.content section.app img.icon { position:absolute; left:15px; top:22px; margin-bottom:0; }
+
+/* links */
+.content a { cursor:pointer; }
+.content a.block { color:#000; }
+.content a.wrap { text-decoration:none; }
+.content a.wrap:hover span { text-decoration:underline; cursor:pointer; } /* investigate styles for 2 line .more links */
+
+.content #features-nav a:focus { outline: none;}
+
+.content #features-nav a:focus span { outline: -webkit-focus-ring-color auto 5px !important; outline: dotted;}
+
+/* inset pullout */
+.content .pullout.inset { padding:26px 126px 8px; *zoom:1; background:#fafafa; }
+.content a.pullout.inset:hover { background:#f2f2f2; }
+.content .pullout.inset:after { content:'.'; display:block; height:0; clear:both; visibility:hidden; }
+.content .pullout.inset h1 { margin-bottom:.25em; }
+.content .pullout.inset img.left { margin:0 20px 14px 0; }
+
+/* up to date pullout */
+.content .pullout.inset.up-to-date { margin:20px -10px 30px; _position:relative; _z-index:1; }
+.content .pullout.inset.up-to-date h1 { font-size:1.2857em; }
+.content .pullout.inset.up-to-date p { color:#666; }
+.content .pullout.inset.up-to-date img.left { margin:-10px 35px 7px 0; _position:relative; _z-index:1; }
+
+/* aesthetic */
+.content .shadow { border:1px solid #ccc; -webkit-box-shadow:0 1px 4px rgba(0,0,0,.4); -moz-box-shadow:0 1px 4px rgba(0,0,0,.4); box-shadow:0 1px 4px rgba(0,0,0,.4); }
+.content .inset { border:1px solid #ccc; -webkit-box-shadow:inset 0 1px 4px rgba(0,0,0,.4); -moz-box-shadow:inset 0 1px 4px rgba(0,0,0,.4); box-shadow:inset 0 1px 4px rgba(0,0,0,.4); }
+
+.content .shadow:nth-child(1n),
+.content .inset:nth-child(1n) { border:none; }
+
+.content .gradient {
+	background:#f2f2f2;
+	background:-webkit-gradient(linear, left top, left bottom, from(#fff), to(#f2f2f2));
+	background:-moz-linear-gradient(top, #fff, #f2f2f2);
+}
+.content a.gradient:hover {
+	background:#fff;
+	background:-webkit-gradient(linear, left top, left bottom, from(#fff), to(#f7f7f7));
+	background:-moz-linear-gradient(top, #fff, #f7f7f7);
+}
+
+.content img.reflect,
+.content .reflect img { display:block;
+	-webkit-box-reflect:below 0px -webkit-linear-gradient(top,rgba(255,255,255,0) 85%,rgba(255,255,255,.17) 100%);
+}
+
+/* toggle-nav */
+.content .toggle-nav { width:100%; margin:0 auto 30px; text-align:center; position:relative; z-index:1001; }
+.content .toggle-nav li,
+.content .toggle-nav li a { display:-moz-table-cell; display:inline-block; *display:inline; *zoom:1; }
+.content .toggle-nav li a { padding:6px 20px 7px; min-width:115px; border:1px solid #cfcfcf; border-left-color:transparent; text-decoration:none;
+	background-color:#f8f8f8;
+	background:-webkit-gradient(linear, 0 0, 0 100%, from(#fefefe), to(#f4f4f4));
+	background:-moz-linear-gradient(100% 100% 90deg, #f4f4f4, #fefefe);
+	-webkit-box-shadow:inset 1px 0 0 #fff; -moz-box-shadow:inset 1px 0 0 #fff; box-shadow:inset 1px 0 0 #fff;
+}
+.content .toggle-nav li a:hover { color:#0088cc;
+	-webkit-box-shadow:1px 0 0 #fff; -moz-box-shadow:1px 0 0 #fff; box-shadow:1px 0 0 #fff;
+	background-color:#fcfcfc;
+	background:-webkit-gradient(linear, 0 0, 0 100%, from(#fff), to(#fafafa));
+	background:-moz-linear-gradient(100% 100% 90deg, #fff, #fafafa);
+}
+
+.content .toggle-nav li a.first-child { border-left: 1px solid #cfcfcf; }
+
+.content .toggle-nav li:first-child a {
+	-webkit-border-radius:6px 0 0 6px; -moz-border-radius:6px 0 0 6px; border-radius:6px 0 0 6px;
+	-webkit-box-shadow:none; -moz-box-shadow:none; box-shadow:none;
+}
+.content .toggle-nav li:last-child a { -webkit-border-radius:0 6px 6px 0; -moz-border-radius:0 6px 6px 0; border-radius:0 6px 6px 0; }
+
+.content .toggle-nav li a.active { color:#fff; cursor:default; text-decoration:none; border:1px solid #666;
+	background:#636363;
+	background:-webkit-gradient(linear, 0 0, 0 100%, from(#545454), to(#7b7b7b));
+	background:-moz-linear-gradient(100% 100% 90deg, #7b7b7b, #545454);
+	-webkit-box-shadow:0 1px 9px rgba(0, 0, 0, 0.52) inset; -moz-box-shadow:0 1px 9px rgba(0, 0, 0, 0.52) inset;  box-shadow:0 1px 9px rgba(0, 0, 0, 0.52) inset;
+}
+.content .toggle-nav li a .everywhere { width:30px; height:21px; margin:-1px 10px -5px 0; display:inline-block; background:no-repeat 50% 0; _position:relative; _z-index:1; }
+.content .toggle-nav li a.active .everywhere { background-position:50% 100%; }
+
+
+/* dot nav */
+.dot-nav { width:100%; margin:0; padding:0; text-align:center; line-height:1px; }
+.dot-nav li,
+.dot-nav li a { display:-moz-inline-stack; display:inline-block; *display:inline; *zoom:1; }
+.dot-nav li { position:relative; z-index:1; margin:0; width:13px; height:15px; overflow:hidden; }
+.dot-nav li a { position:absolute; z-index:1; width:13px; height:45px; top:0; left:0; cursor:pointer; text-indent:-1000em; background:url(http://images.apple.com/global/elements/buttons/dots_08c.png) no-repeat 0 0; behavior:url(/global/scripts/lib/ie7pngfix.htc); }
+.dot-nav li a:hover { top:-15px; }
+.dot-nav li a.active { cursor:default; top:-30px; }
+
+.dot-nav:nth-child(1n) li { width:10px; height:10px; padding:3px 2px 2px 2px; }
+.dot-nav:nth-child(1n) li a { border-radius:5px; width:10px; height:10px; background:#e0e1e3;
+	-webkit-box-shadow:inset 0 1px 1px rgba(0, 0, 0, .25);
+	   -moz-box-shadow:inset 0 1px 1px rgba(0, 0, 0, .25);
+	        box-shadow:inset 0 1px 1px rgba(0, 0, 0, .25);
+}
+.dot-nav:nth-child(1n) li a:hover { top:0; background:#ccc;}
+.dot-nav:nth-child(1n) li a.active { top:0; background:#08c;
+	background:-webkit-gradient(linear,lefttop,leftbottom,color-stop(0%,rgb(126,198,234)),color-stop(24%,rgb(70,179,234)),color-stop(100%,rgb(3,135,201)));
+	background:-webkit-linear-gradient(top,rgb(126,198,234)0%,rgb(70,179,234)45%,rgb(3,135,201)100%);
+	background:   -moz-linear-gradient(top,rgb(126,198,234)0%,rgb(70,179,234)45%,rgb(3,135,201)100%);
+	background:        linear-gradient(top,rgb(126,198,234)0%,rgb(70,179,234)45%,rgb(3,135,201)100%);
+	-webkit-box-shadow:inset 0 1px 0 rgba(0, 0, 0, .25);
+	   -moz-box-shadow:inset 0 1px 0 rgba(0, 0, 0, .25);
+	        box-shadow:inset 0 1px 0 rgba(0, 0, 0, .25);
+}
+
+
+/* paddle arrow nav */
+.paddle-nav li { width:100%; position:absolute; top:0; left:0; z-index:1003; _display:none; }
+.paddle-nav li .arrow { position:absolute; display:block; top:0; height:560px; width:107px; padding:0 20px; -moz-opacity:0; opacity:0; filter:alpha(opacity=0); outline:none; z-index:1; cursor:pointer; *background-image:url(http://images.apple.com/global/elements/blank.gif);
+	-webkit-transition:.25s opacity ease-out; -moz-transition:.25s opacity ease-out; transition:.25s opacity ease-out;
+}
+.paddle-nav li .arrow:hover { -moz-opacity:1; opacity:1; filter:alpha(opacity=100); }
+.paddle-nav li .arrow.disabled { display:none; }
+.paddle-nav li .arrow b { display:block; width:40px; height:80px; margin-top:-40px; position:relative; z-index:1; top:50%; text-indent:-9999px; overflow:hidden; behavior:url(/global/scripts/lib/ie7pngfix.htc); }
+
+.paddle-nav li .arrow.prev { left:0; }
+.paddle-nav li .arrow.prev b { float:left; background:url(http://images.apple.com/global/elements/arrows/paddle_prev.png) no-repeat; }
+
+.paddle-nav li .arrow.next { right:0; }
+.paddle-nav li .arrow.next b { float:right; background:url(http://images.apple.com/global/elements/arrows/paddle_next.png) no-repeat; }
+
+@media only screen and (max-device-width:768px) {
+	.paddle-nav { display:none; } /* don't show the paddles on iOS, swipe instead */
+}
+
+/* caption-gallery */
+.caption-gallery { *height:495px; position:relative; z-index:1; margin-top:32px; padding:0 0 40px; }
+.caption-gallery figcaption.caption { width:621px; padding:0 20px; font-size:.9em; text-align:center; }
+.caption-gallery img { margin-bottom:-7px; *margin-bottom:-3px; _position:relative; _z-index:1; }
+.caption-gallery img.reflect,
+.caption-gallery .reflect img { margin-bottom:30px; }
+.caption-gallery .blurb { width:103px; padding:.4em 0 0; text-align:left; position:absolute; z-index:1000; font-size:.8571em; line-height:1.5em; float:none; border-top:1px solid #7f7f7f; }
+.caption-gallery .blurb.left { left:-110px; padding-right:10px; }
+.caption-gallery .blurb.right { right:-110px; padding-left:10px; }
+.caption-gallery .blurb * { margin:0; }
+
+/* dividers */
+#main .top-gradient { padding:0 70px; margin:0 -70px; background:url(http://images.apple.com/v/osx/a/images/top_gradient_divider.jpg) no-repeat 50% 100%; }
+#main .divider-down { background:url(http://images.apple.com/v/osx/a/images/divider_down.png) no-repeat 50% 0; }
+#main .border-top { border-top:1px solid #ccc; }
+#main .border-bottom { border-bottom:1px solid #ccc; }
+
+/* close button */
+.gallery-content .close { position:absolute; width:29px; height:29px; text-indent:-9999px; z-index:1; background:url(http://images.apple.com/v/osx/a/images/button_close.png) no-repeat 0 0; behavior:url(/global/scripts/lib/ie7pngfix.htc); }
+.gallery-content .close:hover { background-positon:0 100%; }
+
+/* badge */
+.content .badge { display:inline-block; *display:inline; *zoom:1; padding:0 0.7143em; font-size:1em; line-height:2.5714em; font-weight:bold; color:#fff; text-shadow:0 -1px 0 #d97300; text-shadow:0 -1px 0 rgba(0,0,0,.15); background:#f90; }
+
+/* product header */
+#productheader h2 a { text-indent:0; }
+#productheader li a { text-shadow:#fff 0 1px 0; }
+#productheader ul li a { margin-left:24px; }
+
+.overview       #pn-overview a,
+.whats-new      #pn-whats-new a,
+.what-is        #pn-what-is a,
+.apps           #pn-apps a,
+.how-to-upgrade #pn-how-to-upgrade a,
+.specs          #pn-specs a { color:#999 !important; cursor:default; }
+
+
+/* Footers
+------------------------*/
+#promofooter { margin-left:-2px; margin-right:-2px; _position:relative; _z-index:1; }
+#main .promofooter-divider { width:980px; margin:0 -70px; padding:30px 70px; }
+
+/* sosumi */
+.sosumi { width:940px; margin:18px auto; padding:0 20px; }
+.sosumi a { color:#333; }
+.sosumi ol { margin:0; padding-right:21px; padding-left:21px; }
+.sosumi ul { margin:0; }
+.sosumi li { padding-bottom:5px; }
+.sosumi p { margin:0; padding-bottom:5px; }
+ol.sosumi { width:898px; margin:18px auto; }
+
+
+/* Page Specific
+------------------------*/
+.overview-hero #main #content { padding-top:0; padding-bottom:0; margin-bottom:0; }
+.overview-hero #hero,
+.overview-hero #hero .paddle-nav li .arrow,
+.overview-hero #hero .gallery-view .gallery-content { height:660px; }
+.overview-hero #hero,
+.overview-hero #hero .gallery-view .gallery-content { width:1120px; }
+.overview-hero #hero { overflow:hidden; position:relative; z-index:1000; display: -moz-inline-stack; }
+.overview-hero #hero .gallery-view { width:5765px; }
+.overview-hero #hero .gallery-view .gallery-content { position:relative; z-index:1001; float:left; _display:inline; _zoom:1; margin:0; text-align:center; }
+.overview-hero #hero .gallery-view .gallery-content .hero-image { position:absolute; z-index:1; bottom:25px; left:107px; }
+.overview-hero #hero .dot-nav { position:absolute; z-index:1002; left:0; bottom:5px; }
+
+.overview-hero #hero h1 { margin-bottom:2px; padding-top:20px; }
+.overview-hero #hero h2.intro,
+.overview-hero #hero p.intro { width:700px; margin-left:auto; margin-right:auto; font-weight:normal; color:#4d4d4d; font-size:1.4286em; line-height:1.2em; letter-spacing:-.05em; }
+
+@-moz-document url-prefix() {
+		.overview-hero #hero .gallery-view { position: absolute; }
+	}
+@media only screen and (max-device-width:768px) {
+	.overview-hero #hero .gallery-view .gallery-content { -webkit-transform:translateZ(0); }
+	.overview-hero #hero h2.intro,
+	.overview-hero #hero p.intro { letter-spacing:0; }
+}
+
+.overview-hero #hero .gallery-view .gallery-hero-1 .column.last { position:absolute; top:0; right:0; width:588px; padding-top:98px; z-index:5; }
+.overview-hero #hero .gallery-view .gallery-hero-1 .column.last h1 { margin-bottom:27px; }
+.overview-hero #hero .gallery-view .gallery-hero-1 .hero-image { left:0; margin-left:-365px; }
+.overview-hero #hero .gallery-view .gallery-hero-4 .hero-image { left:50%; margin-left:-385px; }
+.overview-hero #hero .gallery-view .gallery-hero-5 { margin-left:165px; }
+.overview-hero #hero .gallery-view .gallery-hero-5 .hero-image { left:-140px; }
+.overview-hero #hero .gallery-view .gallery-hero-5 .sosumi { padding:0; position:absolute; z-index:2; bottom:18px; left:0; width:100%; }
+
+.overview-hero #hero .moviePanel,
+.overview-hero #hero .moviePanel video,
+.overview-hero #hero .moviePanel .video { width:848px; height:480px; }
+.overview-hero #hero .moviePanel { margin:80px auto 0; }
+.overview-hero #hero .close { left:90px; top:40px; }
+
+#overview .row { padding-top:23px; padding-bottom:0; }
+#overview .row .column { padding:16px 20px 0; }
+#overview .row .column h2 { margin-bottom:8px; }
+#overview .row .column h3 { margin-bottom:0; }
+#overview .row .column p { margin-bottom:16px; }
+#overview .row.grid3col .column p { min-height:6.7em; }
+
+#overview .flushleft.flushright.row { width:auto; padding-left:94px; padding-right:85px; }
+
+#overview .video-thumb { display:inline-block; *display:inline; *zoom:1; padding:7px; position:relative; z-index:1; }
+#overview .video-thumb img { display:block; }
+#overview .video-thumb .play { display:block; width:38px; height:38px; *height:37px; margin:-19px 0 0 -19px; position:absolute; z-index:1; left:50%; top:50%; background:url(http://images.apple.com/v/osx/a/images/video_play_glossy.png) 0 0 no-repeat; _behavior:url(/global/scripts/lib/iepngfix.htc); }
+@media only screen {
+	#overview .video-thumb .play { background-image:url(/v/osx/a/images/video_play_glossy.svg); }
+}
+#overview a:hover .video-thumb .play,
+#overview a.video-thumb:hover .play { background-position:0 100%; }
+
+#overview #buckets { padding-top:14px; background:url(http://images.apple.com/v/osx/a/images/overview_buckets_bg.png) no-repeat 50% 0; }
+#overview #buckets .column { width:271px; min-height:324px; *height:324px; margin-left:4px; }
+#overview #buckets .column.first .video-thumb { margin-left:16px; }
+
+#overview #featured { padding-right:104px; background:url(http://images.apple.com/v/osx/a/images/overview_promos_bg.png) no-repeat 50% 0; }
+#overview #featured .column { padding-top:15px; border-right:1px solid #e5e5e5; }
+#overview #featured .column img.right { margin-bottom:-10px; _position:relative; _z-index:1; }
+#overview #featured .column.first { padding-right:29px; }
+#overview #featured .column.last { width:406px; border-right:none; }
+#overview #featured .column.last img.right { margin-top:14px; }
+
+
+/* whats-new */
+#whats-new #content { padding-top:0; }
+#whats-new #content .row { width:730px; margin-left:-55px; margin-right:-55px; padding-left:160px; padding-right:90px; _position:relative; _z-index:1; }
+#whats-new #content .row .gallery-view .gallery-content { width:100%; }
+#whats-new #content .row.grid2col { width:840px; padding-left:90px; padding-right:50px; }
+#whats-new #content .row.grid2col .column { width:384px; }
+#whats-new #content .row .toggle-nav { width:661px; margin-left:0; }
+
+#whats-new .gallery .gallery-content.gallery-movie { position:relative; z-index:1001; width:880px; height:480px; padding:50px 120px 46px; overflow:hidden; background:#fff; border-bottom:1px solid #e5e5e5; }
+#whats-new .gallery .gallery-content.gallery-movie .moviePanel { position:relative; z-index:5; width:848px; height:480px; }
+#whats-new .gallery .gallery-content.gallery-movie .close { top:27px; left:78px; _behavior:url(/global/scripts/lib/iepngfix.htc); }
+
+#whats-new #content .caption-gallery .blurb.left { left:-160px; }
+#whats-new #content .caption-gallery .blurb.right { right:-90px; }
+
+#whats-new #hero .gallery-content { width:1120px; }
+#whats-new #hero .gallery-content.gallery-movie { width:880px; }
+#whats-new #hero .hero-video-default { padding-top:0; padding-bottom:42px; text-align:center; }
+#whats-new #hero .hero-video-default h1 { margin-bottom:16px; }
+#whats-new #hero .hero-video-default p.intro { width:810px; margin-bottom:0; }
+#whats-new #hero .gallery-content.video { padding-top:30px; }
+#whats-new #hero .gallery-content.video .moviePanel { margin:0 auto; width:848px; height:480px; }
+
+#whats-new #icloud .gallery-icloud-2 img { margin-left:-105px; }
+#whats-new #icloud .gallery-icloud-1 .caption.one { top:314px; padding-right:240px; }
+
+#whats-new #messages .gallery-messages-1 .caption.one { top:151px; width:143px; padding-right:285px; }
+#whats-new #messages .gallery-messages-1 .caption.two { top:306px; padding-right:295px; }
+#whats-new #messages .gallery-messages-1 .caption.three { top:43px; padding-left:115px; }
+#whats-new #messages .gallery-messages-1 .caption.four { top:279px; padding-left:115px; }
+#whats-new #messages .gallery-messages-2 img { margin-left:-105px; }
+
+#whats-new #notification-center .gallery-notification-center-1 .caption.one { top:38px; padding-left:65px; }
+#whats-new #notification-center .gallery-notification-center-1 .caption.two { top:263px; padding-left:65px; }
+#whats-new #notification-center .gallery-notification-center-2 .caption.one { top:74px; padding-left:65px; }
+
+#whats-new #sharing .caption-gallery .caption.one { top:66px; padding-right:209px; }
+#whats-new #sharing figcaption.row-caption { margin-top:26px; width:662px; font-size:0.9em; text-align:center; color:#666; }
+
+#whats-new #facebook { position:relative; z-index:1; }
+#whats-new #facebook .violator { position:absolute; z-index:1; top:-5px; left:-4px; }
+
+#whats-new #facebook .gallery-facebook-1 .caption.one { top:227px; padding-left:296px; }
+#whats-new #facebook .gallery-facebook-2 .caption.one { top:107px; padding-left:264px; }
+#whats-new #facebook .gallery-facebook-3 .caption.one { top:48px; padding-left:64px; }
+
+#whats-new #game-center .caption-gallery { margin-top:20px; }
+#whats-new #game-center .gallery-game-center-1 .caption.one { top:137px; width:130px; padding-right:135px; }
+#whats-new #game-center .gallery-game-center-1 .caption.two { top:228px; padding-left:295px; }
+#whats-new #game-center .gallery-game-center-2 img { margin-left:-120px; }
+
+#whats-new #gatekeeper .caption-gallery .caption.one { top:238px; padding-left:385px; }
+
+#whats-new #safari .caption-gallery { padding-bottom:62px; }
+#whats-new #safari .caption-gallery .caption.one { top:74px; padding-left:228px; }
+#whats-new #safari .gallery-safari-3 img { margin-left:-107px; }
+#whats-new #safari .gallery-safari-3 img.adjust-reflection { margin-top:30px; margin-bottom:-5px; *margin-bottom:0; }
+
+#whats-new #all-features { padding-top:60px; }
+#whats-new #all-features .pullout.inset { padding-left:177px; padding-right:155px; margin-left:-55px; margin-right:-55px; _position:relative; _z-index:1; }
+#whats-new #all-features .pullout.inset img.left { margin:12px 20px 14px 0; }
+
+#whats-new #notification-center .caption-gallery,
+#whats-new #sharing .caption-gallery,
+#whats-new #facebook .caption-gallery,
+#whats-new #safari .caption-gallery { margin-top:-9px; _position:relative; _z-index:1; }
+
+
+/* how-to-upgrade */
+#how-to-upgrade #content { padding-top:49px; }
+#how-to-upgrade #content .row { width:870px; padding-top:32px; }
+#how-to-upgrade #content .row h1 { margin-bottom:1.2916em; }
+
+#how-to-upgrade #hero .hero-image { margin-left:-50px; }
+#how-to-upgrade #hero .badge { margin-top:55px; }
+#how-to-upgrade #hero h1,
+#how-to-upgrade #hero .intro { position:relative; z-index:1; }
+#how-to-upgrade #hero h1 { padding-top:107px; margin-bottom:10px; }
+#how-to-upgrade #hero .intro { color:#333; font-size:1.1429em; line-height:1.375em; } /* 16px/22px */
+
+#how-to-upgrade #steps ol.grid3col { list-style:none; margin:0; }
+#how-to-upgrade #steps ol.grid3col .column { width:245px; margin-left:70px; }
+#how-to-upgrade #steps ol.grid3col .column img { display:block; }
+
+#how-to-upgrade #steps ol.grid3col .column .title,
+#how-to-upgrade #steps ol.grid3col .column .title h1,
+#how-to-upgrade #steps ol.grid3col .column .title h2,
+#how-to-upgrade #steps ol.grid3col .column .title h3 { line-height:1.3em }
+#how-to-upgrade #steps ol.grid3col .column .title { font-size:1.2857em; min-height:5.15em; _height:5.15em; margin-bottom:1em; padding-top:25px; }
+
+#how-to-upgrade #steps ol.grid3col .column.step1 a.more { white-space:normal; }
+#how-to-upgrade #steps ol.grid3col .column.step3 h3 { margin-right:-20px; _position:relative; _z-index:1; *zoom:1; }
+
+
+/* accessibility */
+#accessibility #content h1 { font-size:2em; font-weight:normal; }
+#accessibility #content h2 { color:#888; font-weight: normal; }
+#accessibility #content h3 { font-size:1em; font-weight:bold; }
+#accessibility #content .row .caption { font-size:.9em; }
+#accessibility #content .divider-down.flushpad { width:870px; }
+
+#accessibility #hero { margin-bottom:54px; }
+
+#accessibility #vision.row { padding-bottom:0; }
+#accessibility #vision .intro { width:680px; padding-bottom:50px; }
+#accessibility #vision img.left { margin-left:29px; }
+#accessibility #vision .column.last { padding-top:48px; }
+
+#accessibility #surfing { padding-bottom:44px; }
+#accessibility #surfing .column.last img { margin-bottom:40px; }
+
+#accessibility #voices { padding-bottom:60px; }
+#accessibility #voices .column.first img { margin-bottom:15px; }
+#accessibility #voices .column.last { margin-top:80px; }
+
+#accessibility #activities { padding-bottom:80px; }
+#accessibility #activities .column.last { padding-top:17px; }
+#accessibility #activities img { *float:left; }
+
+#accessibility #international { padding-bottom:57px; }
+#accessibility #international .column.first { padding-top:78px; }
+
+#accessibility #braille { padding-bottom:35px; }
+#accessibility #braille .column.last { padding-top:50px; }
+#accessibility #braille img.left { margin-right:-106px; margin-left:-50px; _position:relative; _z-index:1; }
+
+#accessibility #hearing.row { padding-top:55px; padding-bottom:0; }
+#accessibility #hearing .intro { width:625px; padding-bottom:26px; }
+
+#accessibility #ichat { padding-bottom:25px; }
+#accessibility #ichat img.right { margin-top:65px; }
+
+#accessibility #captioning { padding-bottom:60px; }
+
+#accessibility #motorskills.row { padding-top:55px; padding-bottom:0; }
+#accessibility #motorskills .intro { width:625px; padding-bottom:45px; }
+
+#accessibility #automate img { margin-top:-30px; margin-bottom:10px; _position:relative; _z-index:1; }
+
+
+/* compatibility */
+#compatibility h3 { font-size:1em; font-weight:bold; }
+#compatibility #content .divider-down.flushpad { width:870px; }
+
+#compatibility #hero { margin-bottom:3em; }
+#compatibility #hero p.intro { margin:7px 80px 0; }
+
+#compatibility #move { padding-top:86px; padding-bottom:50px; margin-top:0; }
+#compatibility #move .column.last { width:655px; }
+
+#compatibility #standard { padding-bottom:46px; }
+#compatibility #standard img.left { margin-left:22px; }
+
+#compatibility #office-exchange { padding-bottom:60px; }
+#compatibility #office-exchange .last img { margin-top:11px; }
+#compatibility #office-exchange .last h1 { padding-top:2px; }
+
+#compatibility #devices { padding-bottom:55px; }
+#compatibility #devices img.right { margin-top:40px; margin-right:35px; }
+
+#compatibility #windows { padding-bottom:75px; }
+#compatibility #windows .column.last { padding-top:40px; }
+
+#compatibility #network { padding-bottom:80px; }
+#compatibility #network .column.first { width:354px; }
+#compatibility #network img.right { margin-left:0; }
+
+#compatibility #works-on { width:824px; padding:0; padding:35px 28px 10px; margin-bottom:20px; }
+#compatibility #works-on h1 { font-size:1em; font-weight:bold; }
+#compatibility #works-on ul li { padding-bottom:5px; }
+#compatibility #works-on .column { width:380px; }
+
+
+/* gestures */
+#gestures .divider-up { background:url(http://images.apple.com/v/osx/a/images/divider_up.png) 0 100% no-repeat; }
+#gestures #content .flushleft.flushright { width:1120px; }
+#gestures #content .flushpad,
+#gestures #content .flushleft.flushright.padleft.padright { width:870px; }
+#gestures #hero .intro { width:720px; padding-bottom:20px; }
+
+#gestures #feel .divider-up { padding-top:44px; padding-bottom:20px; }
+#gestures #feel figure.tips { padding-bottom:60px; }
+#gestures #feel figure.bottom { padding-bottom:0; }
+#gestures #feel figure.tips .tip { width:249px; top:281px; }
+#gestures #feel figure.tips .tip.switch-open-apps { width:257px; }
+#gestures #feel figure.tips .tip.first { left:298px; }
+#gestures #feel figure.tips .tip.last { left:710px; }
+
+#gestures #multitouch { padding-top:44px; }
+#gestures #multitouch .grid2col .column.first { width:350px; }
+#gestures #multitouch .grid2col .column.last { width:439px; }
+#gestures #multitouch img { margin-bottom:0; }
+
+
+/* video browser */
+#gestures #feel .video-browser { z-index:1001; background:url(http://images.apple.com/v/osx/a/images/gestures_gallery_bg_bottom.png) no-repeat 0 100%, url(http://images.apple.com/v/osx/a/images/gestures_gallery_bg.png) repeat-y 0 0; *background:url(http://images.apple.com/v/osx/a/images/gestures_gallery_bg.png) repeat-y 0 0; border-top:1px solid #eee; border-bottom:1px solid #eee; }
+#gestures #feel .video-browser:nth-child(1n) { border:none; }
+#gestures #feel .video-browser .first { width:284px; padding-top:28px; padding-bottom:30px; padding-left:140px; }
+#gestures #feel .video-browser .first ul { font-size:.85em; padding-top:7px; margin-left:-10px; _position:relative; _z-index:1; }
+#gestures #feel .video-browser .first ul li a { width:254px; height:22px; padding:7px 11px 5px; margin-bottom:3px; display:block; color:#333; }
+#gestures #feel .video-browser .first ul li a:hover { color:#08c; text-decoration:none; }
+#gestures #feel .video-browser .first ul li a.active { background:url(http://images.apple.com/v/osx/a/images/gestures_gallery_active.png) no-repeat 0 0; background-size:276px 34px; color:#666; cursor:default; }
+#gestures #feel .video-browser .last { width:440px; padding-top:53px; }
+#gestures #feel .video-browser .last img { margin:0; display:block; }
+
+@media only screen and (min-device-pixel-ratio:1.5) and (min-device-width:321px),
+       only screen and (-webkit-min-device-pixel-ratio:1.5) and (min-device-width:321px) {
+	#gestures #feel .video-browser .first ul li a.active { background-image:url(http://images.apple.com/v/osx/a/images/gestures_gallery_active_2x.png); }
+}
+
+#gestures #feel .video-browser .moviePanel { width:380px; height:477px; margin:0; position:relative; z-index:1001; }
+
+#gestures #feel .video-browser .gallery-content { width:380px; height:477px; position:relative; z-index:1001; }
+#gestures #feel .video-browser .gallery-content.gallery-movie { width:380px; height:477px; margin:0; padding:0; position:relative; z-index:1001; }
+#gestures #feel .video-browser .gallery-content.gallery-movie::after { display:none; }
+
+#gestures #feel .video-browser figure figcaption { padding-top:18px; color:#777; }
+#gestures #feel .video-browser figure figcaption h4 { margin-bottom:0; }
+
+#gestures #feel .video-browser figure .mediaControllerPanel { display:none; }
+#gestures #feel .video-browser figure .endState ul { padding:0; }
+
+#gestures #feel .video-browser figure a.pillbutton { position:absolute; z-index:1003; top:214px; left:110px; overflow:hidden; }
+#gestures #feel .video-browser figure a:hover.pillbutton { text-decoration:none; }
+
+#gestures #feel .video-browser .gallery-gestures-customize img { margin-left:-22px; margin-right:-22px; _position:relative; _z-index:1; }
+
+
+/* all apps and utilites */
+#all h2 { color:#888; font-weight: normal; }
+#all section h2 { margin:1.25em 0 1em; color:#000; font-size:1.6em; font-weight: normal; line-height: 1.1666em; }
+#all #hero img { margin-bottom:20px; }
+#all #hero .intro { margin-bottom:35px; }
+#all nav#apps,
+#all #main .sidebar { font-size:.8571em; }
+#all #main a.back-to-top { position:absolute; right:0; top:14px; padding-right:10px; color:#08c; background:url(http://images.apple.com/global/elements/arrows/uparrow_08c.gif) no-repeat 100% 50%; }
+#all .content h3 { margin-bottom:4px; }
+
+#all #main nav.box { width:820px; margin-bottom:32px; padding:20px 30px; border:1px solid #e5e4e4; background:#f1f1f1; }
+#all #main nav.box .column { width:128px; margin-left:8px; }
+#all #main nav.box .first { width:105px; }
+#all #main nav.box .three { width:105px; margin-left:25px; }
+#all #main nav.box .last { width:156px; }
+#all #main nav.box a { display:block; padding:4px 0; color:#333; }
+#all #main nav.box a:hover { color:#08c; text-decoration:none; }
+#all #main nav.box h3 { margin-bottom:10px; padding-bottom:3px; border-bottom:1px solid #d9d9d9; }
+
+#all #main nav.box .column { width:400px; margin-left:16px; }
+#all #main nav.box .first .column       { width:120px; }
+#all #main nav.box .first .column.first { width:110px; }
+#all #main nav.box .first .column.last  { width:130px; }
+#all #main nav.box .last  .column       { width:130px; }
+#all #main nav.box .last  .column.first { width:140px; }
+#all #main nav.box .last  .column.last  { width:100px; }
+
+#all #main h1.headline { margin-bottom:5px; padding:18px 0 5px; font-size:2em; border-bottom:1px solid #d9d9d9; }
+
+#all #main .app { padding:15px 20px 30px 90px; }
+#all #main .app p { width:650px; }
+#all #main .app .grid2col p,
+#all #main .app .grid3col p { width:225px; }
+#all #main .app .grid2cola p { width:auto; }
+
+#all #main #ical p,
+#all #main #itunes p,
+#all #main #launchpad p,
+#all #main #missioncontrol p,
+#all #main #macappstore p,
+#all #main #quicktime p,
+#all #main #activity p,
+#all #main #console p,
+#all #main #migration p,
+#all #main #terminal p,
+#all #main #voiceover p { width:300px; }
+
+#all #main #photobooth p { width:400px; }
+#all #main #calculator p,
+#all #main #chess p,
+#all #main #dvd p,
+#all #main #midi p,
+#all #main #colorsync p,
+#all #main #colormeter p,
+#all #main #grapher p { width:450px; }
+
+#all #main #timemachine img.icon,
+#all #main #quicktime img.icon,
+#all #main #isync img.icon,
+#all #main #itunes img.icon { margin-top:-5px; }
+#all #main #timemachine { border:none; }
+
+
+/* Up-to-Date */
+#uptodate #content { padding-top:52px; padding-right:0; padding-bottom:0; }
+#uptodate .grid2col .column.last { width:446px; min-height:406px; _height:406px; padding-top:103px; position:relative; z-index:2; }
+#uptodate .grid2col .column.last h1 { margin-bottom:18px; }
+#uptodate .grid2col .column.last p { color: #666; }
+#uptodate img.flushleft { margin-top:-507px; _position:relative; _z-index:1; }
+
+
+/* OS X Upgrade to Qualifying Refurbished Systems */
+#ugrade-refurbished .content h1 { padding-left:10px; margin-bottom:40px; }
+#ugrade-refurbished .content h2 { padding-left:10px; margin-bottom:6px; border-bottom:1px solid #E5E5E5; padding-bottom:5px; }
+#ugrade-refurbished #main #content { padding:50px; margin:0 -50px; position:relative; z-index:1; }
+#ugrade-refurbished table { width:980px; margin-bottom:50px; }
+#ugrade-refurbished table th { padding:8px 10px 8px 10px; font-weight:bold; }
+#ugrade-refurbished table th.model { width:180px; }
+#ugrade-refurbished table th.part { width:280px; }
+#ugrade-refurbished table th.description { width:460px; }
+#ugrade-refurbished table td { padding:4px 10px 5px 10px; }
+#ugrade-refurbished tbody tr:nth-child(odd) { background:#f5f5f5; }
+
+
+/* Up-to-Date + Server */
+#up-to-date #content { padding:0 0 50px; }
+#up-to-date #content .flushpad,
+#up-to-date #content .padright { padding-right:70px; }
+#up-to-date #content .flushpad,
+#up-to-date #content .padleft { padding-left:70px; }
+#up-to-date #content .flushpad,
+#up-to-date #content .flushright { margin-right:-70px; }
+#up-to-date #content .flushpad,
+#up-to-date #content .flushleft { margin-left:-70px; }
+
+#up-to-date #content .osx-desktop	{ margin-bottom: 3em; }
+
+#up-to-date #content .osx-server	{ margin-bottom: 3em; }
+
+#up-to-date #content .border-top { border-top:1px solid #000; padding-top:1.5em; }
+
+#up-to-date #content .column { width:473px; padding-bottom:3em; }
+#up-to-date #content .column h1 { font-size:1.4em; line-height:1.4em; }
+#up-to-date #content .column.border-top { border-top-color:#c2c2c2; }
+
+#up-to-date #content .square li { margin-bottom:18px; }
+#up-to-date #content .terms { font-size:10px !important; line-height:1.5em; color:#888; }
+#up-to-date #content .terms h1 { line-height:1.3em; }
+#up-to-date #content .terms h4 { line-height:1.5em; margin-bottom:14px; }
+#up-to-date #content .terms .square li { margin-bottom:10px; }
+
+#up-to-date #hero { padding:70px 0 30px 0; }
+#up-to-date #hero h1 img { margin-bottom:44px; }
+#up-to-date #hero h3 { margin-bottom:3px; }
+#up-to-date #hero p.intro { color:#666; font-size:16px; }
+#up-to-date #hero .column { width:425px; min-height:518px; *height:518px; padding:0; position:relative; z-index:2; }
+#up-to-date #hero img.flushright { margin-top:-542px; position:relative; z-index:1; }
+
+body#up-to-date #osx-desktop p.bold,
+body#up-to-date #osx-server p.bold { color:#000; font-weight:bold; }
+
+#up-to-date #osx-server { padding-top:5em; }
+#up-to-date #osx-server h1 { margin-bottom:1.25em; }
+#up-to-date #osx-server .column h1 { margin-bottom:10px; }
+
+#up-to-date #content .button span { font-size:.7857em; }
+
+/* Button CTA */
+.button,
+.button span {
+	-webkit-border-radius:1em;
+	 -khtml-border-radius:1em;
+	   -moz-border-radius:1em;
+	     -o-border-radius:1em;
+	        border-radius:1em;
+}
+.button {
+	line-height:1.354em; word-spacing:-.1em; display:inline-block; border:1px solid #4081af; border-bottom-color:#20559a; color:#fff; text-shadow:#2771b3 0 -1px 1px;
+	-webkit-font-smoothing:auto;
+	-webkit-box-shadow:rgba(0,0,0,.20) 0 1px 1px;
+	   -moz-box-shadow:rgba(0,0,0,.20) 0 1px 1px;
+	        box-shadow:rgba(0,0,0,.20) 0 1px 1px;
+	background-color:#3d8cd9;
+	background-image:-webkit-gradient(linear, 0 0, 0 100%, from(#52a8e8), to(#2e76cf));
+	background-image:-moz-linear-gradient(center top, #52a8e8 0%, #2e76cf 100%);
+	background-image:-o-linear-gradient(#52a8e8, #2e76cf);
+}
+.button span { display:block; padding:0 1em 1px; border-top:1px solid #72b9eb; border-bottom:1px solid #377ad0; }
+.button:hover {
+	text-decoration:none; color:#fff; border-color:#2a73a6; border-bottom-color:#07428f; background-color:#257ad4;
+	background-image:-webkit-gradient(linear, 0 0, 0 100%, from(#3e9ee5), to(#1666ca));
+	background-image:-moz-linear-gradient(center top, #3e9ee5 0%, #1666ca 100%);
+	background-image:-o-linear-gradient(#3e9ee5, #1666ca);
+}
+.button:hover span { border-top-color:#62b1e9; border-bottom-color:#206bcb; }
+.button:active {
+	border-color:#154c8c; border-bottom-color:#0e408e; background-color:#2b79cb;
+	-webkit-box-shadow:inset rgba(0, 0, 0, 0.8) 0 0 10px;
+	-moz-box-shadow:inset rgba(0,0,0,0.8) 0 0 10px;
+	box-shadow:inset rgba(0,0,0,0.8) 0 0 10px;
+}
+.button:active span { border-top-color:#1c5b9f; border-bottom-color:#1657b5; }
+
+/* IE adjustments */
+.button { *border:none; *padding-left:11px; *background:url(http://images.apple.com/v/osx/a/images/button_left.gif) 0 0 no-repeat; }
+.button span { *border:none; *padding:1px 12px 5px 1px; *background:url(http://images.apple.com/v/osx/a/images/button_right.gif) 100% 0 no-repeat; padding-top:1px \0/IE9; }
+.button:hover { *background-position:0 -25px; *background-color:transparent; }
+.button:hover span { *background-position:100% -25px; }
+.button:active { *background-position:0 -50px; *background-color:transparent; }
+.button:active span { *background-position:100% -50px; }
+
+
+/* Single-page Geo Alt */
+#whats-new.single-page #hero { padding-bottom:20px; background:url(http://images.apple.com/v/osx/a/images/overview_buckets_bg.png) no-repeat 50% 679px; }
+#whats-new.single-page #hero .gallery-content { width:1120px; padding:0; }
+#whats-new.single-page .up-to-date { margin-bottom:24px; }
+
+
+/* Single-page Geo Alt for China */
+#whats-new.single-page.china #power-nap h1.image-title .title-image { margin-top:3px; }
+
+
+/* Tech Specs */
+#specs #content { padding:30px 0 10px; }
+
+#specs header h1 { margin-bottom:20px; }
+
+#specs table { width:980px; border:1px solid #dfdfdf; border-collapse:separate; *border-collapse:collapse; }
+#specs th { width:193px; margin:0; padding:24px 25px 0; vertical-align:top; border-top:1px solid #c0c0c0; }
+#specs td { width:646px; margin:0; padding:30px 44px; vertical-align:top; border-top:1px solid #c0c0c0; border-left:1px solid #d8d8d8; background:url(http://images.apple.com/v/osx/a/images/specs_border_gradient.jpg) repeat-y 0 0; }
+#specs tr.top th,
+#specs tr.top td { border-top:none; }
+
+#specs table .grid2col .column { width:295px; }
+#specs table .grid3col .column { width:170px; margin-left:55px; }
+
+#specs table h1 { font-size:1.4286em; line-height:1.2em; }
+#specs table h2 { margin-bottom:0; font-size:1em; line-height:1.5em; }
+#specs table p.short { margin-bottom:10px; }
+#specs table ul { margin-bottom:18px; }
+#specs table ul li { margin-bottom:10px; }
+#specs .disc { padding-left:20px; list-style-type:disc; }
+#specs .nospace { margin-bottom:0; }
+
+#specs .reqs ul { margin-left:10px; }
+#specs .reqs ul li { margin-bottom:6px; }
+#specs .included h2 { margin-bottom:20px; }
+
+
+/* recovery */
+#recovery .content { padding-top:27px; padding-bottom:30px; }
+#recovery .content h1 { font-size:1.3em; line-height:1.3; }
+#recovery .content p { line-height:1.7; }
+#recovery .content hr { height:1px; margin:25px auto 50px; border:0; background-color:#cfcecd; }
+
+#recovery .content .hero { margin-top:0; padding-bottom:2em; }
+#recovery .content .hero .hero-mage { margin-bottom:18px; }
+#recovery .content .hero h1 { margin-bottom:8px; }
+#recovery .content .hero h1 img { display:block; margin:0 auto; }
+#recovery .content .hero p.intro { font-size:1.2857em; line-height:1.3333em; color:#474747; width:700px; margin-left:auto; margin-right:auto; }
+
+#recovery .content .grid2cola .first { width:630px; }
+
+#recovery .content .shadow { border:1px solid; border-color:#e5e5e5 #dbdbdb #d2d2d2; -webkit-box-shadow:rgba(0,0,0,.3) 0 1px 3px; -moz-box-shadow:rgba(0,0,0,.3) 0 1px 3px; box-shadow:rgba(0,0,0,.3) 0 1px 3px; }
+#recovery .content img.shadow { -webkit-box-shadow:rgba(0,0,0,.5) 0 2px 7px; -moz-box-shadow:rgba(0,0,0,.5) 0 2px 7px; box-shadow:rgba(0,0,0,.5) 0 2px 7px; }
+#recovery .content .shadow:nth-child(1n) { border:none; } /* reset border for smart browsers */
+#recovery .content .gradient { padding:18px 20px 1px; margin-bottom:18px;
+	background:#f6f6f6;
+	background:-webkit-gradient(linear, 0% 0%, 0% 100%, from(rgba(0,0,0,.02)), to(rgba(0,0,0,.05)));
+	background:-moz-linear-gradient(100% 100% 90deg, rgba(0,0,0,.02), rgba(0,0,0,.05));
+}
+
+#recovery .content .divider-down { width:auto; padding-top:45px; }
+#recovery .content .divider-down .pullout { font-size:.85em; margin-right:-30px; _position:relative; _z-index:1; }
+
+#recovery .content .recovery .flushleft { margin-top:-317px; }
+#recovery .content .recovery .column.last { position:relative; z-index:1; }
+#recovery .content .safety p { width:590px; }
+#recovery .content .rescue p { width:357px; }
+#recovery .content .rescue img { margin-top:2px; }
+#recovery .content .timemachine { width:190px; }
+#recovery .content .timemachine h1 { font-size:1.2em; line-height:1.5; margin-bottom:10px; }
+#recovery .content .timemachine p { line-height:1.6; font-size:1em; }
+#recovery .content .timemachine img { margin-bottom:20px; }
+
+#recovery .content .recovery h1 { font-size:1.5em; margin-bottom:20px; }
+
+#recovery .content .diy img.right { margin:-5px 70px 0 40px; }
+#recovery .content .diy hr { margin-bottom:45px; }
+
+
+/* security */
+#security #content { padding-top:55px; }
+#security #content ul.circle { list-style:disc; }
+#security #hero { padding-bottom:46px; }
+
+#security .row { padding-top:10px; }
+#security .row h2 { line-height:1.3333em; margin-bottom:.5em; }
+#security .row h4 { margin-top:2.5em; }
+
+#security .row .center-vertically { display:table; height:86px; margin:20px 0 0; }
+#security .row .center-vertically span { display:block; display:table-cell; vertical-align:middle; *behavior:url(/v/osx/a/scripts/vertically-center.htc); }
+
+#security .row .topic { padding-top:2.5em; }
+#security .row .topic .icon { display:block; float:left; margin:0 -10px 10px 0; position:relative; z-index:1; }
+#security .row .topic h2 { position:relative; z-index:2; }
+#security .row .topic p { clear:both; }
+
+#security #advice { padding:30px 40px 20px 163px; margin-left:-55px; margin-right:-55px; _position:relative; _z-index:1; }
+#security #advice img.left { display:block; margin:0 0 0 -110px; _position:relative; _z-index:1; }
+#security #advice .column.first { width:40%; }
+#security #advice .column.last { width:54%; }
+
